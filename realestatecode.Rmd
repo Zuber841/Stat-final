@@ -1,6 +1,7 @@
 ```{r}
 realestate<- read.csv("C:/Users/Nick/Desktop/Realestate.csv", header=TRUE)
 pairs(realestate, main="analysis")
+summary(realestate)
 typeof(realestate)
 a1=sub("transaction.date","0",realestate)
 a2=sub('house.age','1',a1)
@@ -8,12 +9,20 @@ a3=sub('distinction.to.the.nearest.MRT.station','2',a2)
 a4=sub('number.of.convenience.stores','3',a3)
 a5=sub('latitude','4',a4)
 a6=sub("longtitude",'5',a5)
-a7=sub("house.price.of.unit.area",'6',a6)
+```
+```{r}
+boxplot(X1.transaction.date~Y.house.price.of.unit.area, data = realestate)
+boxplot(X2.house.age~Y.house.price.of.unit.area, data = realestate)
+boxplot(X3.distance.to.the.nearest.MRT.station~Y.house.price.of.unit.area, data = realestate)
+boxplot(X4.number.of.convenience.stores~Y.house.price.of.unit.area, data = realestate)
+boxplot(X5.latitude~Y.house.price.of.unit.area, data = realestate)
+boxplot(X6.longitude~Y.house.price.of.unit.area, data = realestate)
 ```
 
 ```{r}
 cov(realestate)
 cor(realestate)
+
 ```
 
 ```{r}
